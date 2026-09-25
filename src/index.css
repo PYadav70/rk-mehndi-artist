@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  /* Primary Deep Mehndi Green / Dark Forest Green */
+  --color-mehndi-950: #0B160E;
+  --color-mehndi-900: #102115;
+  --color-mehndi-850: #162B1D;
+  --color-mehndi-800: #1C3624;
+  --color-mehndi-700: #264A32;
+  --color-mehndi-600: #336142;
+
+  /* Supporting Dark Espresso */
+  --color-espresso-950: #120A06;
+  --color-espresso-900: #1A110B;
+  --color-espresso-850: #231610;
+  --color-espresso-800: #2C1D15;
+  
+  /* Antique Gold & Champagne Gold */
+  --color-gold-700: #8C6A24;
+  --color-gold-600: #A88235;
+  --color-gold-500: #C5A059;
+  --color-gold-400: #D4AF37;
+  --color-gold-300: #E2C475;
+  --color-gold-200: #F1DE9F;
+  --color-gold-100: #FAF1D3;
+
+  /* Secondary Warm Ivory / Cream */
+  --color-ivory-50: #FCFBF7;
+  --color-ivory-100: #F7F4EC;
+  --color-ivory-200: #EFE9DC;
+  --color-ivory-300: #DFD5C2;
+}
+
+/* Luxury fine line decorations & subtle textures */
+.mehndi-grid-bg {
+  background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F1DE9F 0%, #D4AF37 40%, #ECCF8A 70%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #C5A059 0%, #D4AF37 50%, #B89243 100%);
+}
+
+.gold-border-subtle {
+  border-color: rgba(197, 160, 89, 0.28);
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #102115;
+}
+::-webkit-scrollbar-thumb {
+  background: #264A32;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
+

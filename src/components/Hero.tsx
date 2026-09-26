@@ -26,7 +26,7 @@ export const Hero: React.FC = () => {
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [isPaused]);
@@ -75,7 +75,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       aria-label="Hero Bridal Showcase"
-      className="relative h-screen min-h-screen flex items-center justify-center  overflow-hidden select-none"
+      className="relative h-[100dvh] min-h-[100dvh] flex items-center justify-center bg-[#0B160E] overflow-hidden select-none"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onMouseEnter={() => setIsPaused(false)}
@@ -149,10 +149,10 @@ export const Hero: React.FC = () => {
       </motion.button>
 
       {/* Hero Content Container with Framer Motion Staggered Reveal */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 md:py-28 text-center flex flex-col items-center justify-center">
         
         {/* Animated Eyebrow / Slide Counter Pill */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-black/50 border border-[#C5A059]/40 rounded-full mb-3 backdrop-blur-xs">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-black/50 border border-[#C5A059]/40 rounded-full mb-2 sm:mb-3 backdrop-blur-xs">
           <span className="w-2 h-2 rounded-full bg-[#ECCF8A] animate-ping" />
           <span className="w-2 h-2 rounded-full bg-[#ECCF8A] -ml-4" />
           <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#FAF5EE]">
@@ -169,17 +169,17 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: LUXURY_EASE }}
-          className="inline-flex items-center gap-2 mb-2"
+          className="inline-flex items-center gap-2 mb-1 sm:mb-2"
         >
-          <span className="w-6 h-px bg-[#ECCF8A]" />
-          <span className="text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold text-[#ECCF8A]">
+          <span className="w-4 sm:w-6 h-px bg-[#ECCF8A]" />
+          <span className="text-[11px] sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] font-semibold text-[#ECCF8A]">
             10+ YEARS OF EXPERIENCE
           </span>
-          <span className="w-6 h-px bg-[#ECCF8A]" />
+          <span className="w-4 sm:w-6 h-px bg-[#ECCF8A]" />
         </motion.div>
 
         {/* Ornamental Divider */}
-        <OrnamentalDivider light className="my-1.5" />
+        <OrnamentalDivider light className="my-1 sm:my-1.5" />
 
         {/* Dynamic Heading with Slide Text Transition */}
         <AnimatePresence mode="wait">
@@ -191,7 +191,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.45, ease: LUXURY_EASE }}
             className="flex flex-col items-center"
           >
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#FCFBF7] tracking-tight leading-[1.12] max-w-4xl mt-2 mb-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
+            <h1 className="font-serif text-[26px] sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-[#FCFBF7] tracking-tight leading-[1.15] max-w-4xl mt-1.5 sm:mt-2 mb-2 sm:mb-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
               {activeSlide.title.includes('.') ? (
                 <>
                   {activeSlide.title.split('.')[0]}.
@@ -212,7 +212,7 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Description */}
-            <p className="max-w-2xl text-sm sm:text-base text-[#F5EFE6] font-light leading-relaxed mb-8 drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]">
+            <p className="max-w-2xl text-xs sm:text-base text-[#F5EFE6] font-light leading-relaxed mb-6 sm:mb-8 drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)] px-2">
               {activeSlide.description}
             </p>
           </motion.div>
@@ -223,7 +223,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: LUXURY_EASE }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-md sm:max-w-none mb-10"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full max-w-xs sm:max-w-none mb-6 sm:mb-10"
         >
           {/* Major Desktop CTA: Magnetic Button */}
           <MagneticButton
@@ -231,7 +231,7 @@ export const Hero: React.FC = () => {
             onClick={(e) => scrollToSection(e, '#booking')}
             className="w-full sm:w-auto"
           >
-            <span className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold bg-[#C5A059] text-[#0E1E12] hover:bg-[#D4AF37] hover:shadow-2xl transition-all duration-300 border border-[#ECCF8A]">
+            <span className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-[0.18em] sm:tracking-[0.2em] font-semibold bg-[#C5A059] text-[#0E1E12] hover:bg-[#D4AF37] hover:shadow-2xl transition-all duration-300 border border-[#ECCF8A] min-h-[46px]">
               <Calendar className="w-4 h-4 text-[#0E1E12]" />
               <span>BOOK YOUR DATE</span>
             </span>
@@ -242,7 +242,7 @@ export const Hero: React.FC = () => {
             onClick={(e) => scrollToSection(e, '#gallery')}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-xs sm:text-sm uppercase tracking-[0.2em] font-medium text-[#FAF5EE] hover:text-[#ECCF8A] bg-black/40 hover:bg-black/60 border border-[#C5A059]/50 hover:border-[#ECCF8A] transition-all duration-300 backdrop-blur-sm cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-[0.18em] sm:tracking-[0.2em] font-medium text-[#FAF5EE] hover:text-[#ECCF8A] bg-black/40 hover:bg-black/60 border border-[#C5A059]/50 hover:border-[#ECCF8A] transition-all duration-300 backdrop-blur-sm cursor-pointer min-h-[46px]"
           >
             <span>VIEW OUR WORK</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#ECCF8A]" />

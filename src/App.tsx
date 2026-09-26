@@ -28,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCFBF7] text-[#1E1510] font-sans selection:bg-[#C5A059]/30 selection:text-[#0E1E12]">
+    <div className="min-h-screen bg-[#FCFBF7] text-[#1E1510] font-sans selection:bg-[#C5A059]/30 selection:text-[#0E1E12] pb-16 sm:pb-0">
       {/* Subtle Top Gold Scroll Progress */}
       <ScrollProgress />
 

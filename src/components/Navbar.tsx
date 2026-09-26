@@ -167,7 +167,7 @@ export const Navbar: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-1.5 text-[#E8DFD1] hover:text-[#ECCF8A] cursor-pointer"
+                    className="w-10 h-10 flex items-center justify-center text-[#E8DFD1] hover:text-[#ECCF8A] hover:bg-white/5 rounded-full transition-colors cursor-pointer"
                     aria-label="Close menu"
                   >
                     <X className="w-5 h-5" />
@@ -175,16 +175,16 @@ export const Navbar: React.FC = () => {
                 </div>
 
                 {/* Staggered Navigation Links */}
-                <nav className="py-6 flex flex-col space-y-2" aria-label="Mobile Navigation">
+                <nav className="py-5 flex flex-col space-y-1" aria-label="Mobile Navigation">
                   {navLinks.map((link, idx) => (
                     <motion.a
                       key={link.label}
                       href={link.href}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05, duration: 0.3 }}
+                      transition={{ delay: idx * 0.04, duration: 0.25 }}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="text-xs font-semibold tracking-[0.16em] uppercase text-[#E8DFD1] hover:text-[#ECCF8A] transition-colors py-2.5 border-b border-white/5 flex items-center justify-between group"
+                      className="text-xs font-semibold tracking-[0.16em] uppercase text-[#E8DFD1] hover:text-[#ECCF8A] transition-colors py-3 px-1 border-b border-white/5 flex items-center justify-between group min-h-[44px]"
                     >
                       <span>{link.label}</span>
                       <ArrowRight className="w-3.5 h-3.5 text-[#C5A059]/50 group-hover:text-[#ECCF8A] group-hover:translate-x-1 transition-all" />
@@ -194,10 +194,10 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Bottom Actions */}
-              <div className="pt-6 border-t border-[#C5A059]/20 space-y-4">
+              <div className="pt-5 border-t border-[#C5A059]/20 space-y-3.5">
                 <a
                   href={`tel:${BUSINESS.phone}`}
-                  className="flex items-center gap-3 text-xs text-[#FCFBF7] hover:text-[#ECCF8A]"
+                  className="flex items-center gap-3 text-xs text-[#FCFBF7] hover:text-[#ECCF8A] p-2 hover:bg-white/5 rounded-sm transition-colors min-h-[44px]"
                 >
                   <div className="w-8 h-8 rounded-full bg-[#C5A059]/20 flex items-center justify-center text-[#ECCF8A] border border-[#C5A059]/40">
                     <Phone className="w-4 h-4" />
@@ -212,7 +212,7 @@ export const Navbar: React.FC = () => {
                   href="#booking"
                   whileTap={{ scale: 0.97 }}
                   onClick={(e) => handleNavClick(e, '#booking')}
-                  className="block w-full text-center py-3 text-xs uppercase tracking-widest font-semibold bg-[#C5A059] text-[#0E1E12] hover:bg-[#D4AF37] transition-all shadow-md cursor-pointer"
+                  className="flex items-center justify-center w-full text-center py-3.5 text-xs uppercase tracking-widest font-semibold bg-[#C5A059] text-[#0E1E12] hover:bg-[#D4AF37] transition-all shadow-md cursor-pointer min-h-[46px]"
                 >
                   BOOK APPOINTMENT
                 </motion.a>

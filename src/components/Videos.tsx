@@ -147,7 +147,7 @@ export const Videos: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 cursor-pointer"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 cursor-pointer"
             onClick={closeVideo}
             role="dialog"
             aria-modal="true"
@@ -158,16 +158,16 @@ export const Videos: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.35, ease: LUXURY_EASE }}
-              className="relative w-full max-w-4xl bg-[#0E1E12] border border-[#C5A059]/40 shadow-2xl overflow-hidden cursor-default"
+              className="relative w-full max-w-4xl bg-[#0E1E12] border border-[#C5A059]/40 shadow-2xl overflow-hidden cursor-default max-h-[90vh] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-[#C5A059]/20">
+              <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 border-b border-[#C5A059]/20 shrink-0">
                 <div>
                   <span className="text-[10px] uppercase tracking-widest text-[#ECCF8A] font-medium block">
                     {selectedVideo.category}
                   </span>
-                  <h3 className="font-serif text-lg font-semibold text-[#FCFBF7]">
+                  <h3 className="font-serif text-base sm:text-lg font-semibold text-[#FCFBF7]">
                     {selectedVideo.title}
                   </h3>
                 </div>
@@ -175,7 +175,7 @@ export const Videos: React.FC = () => {
                 <button
                   type="button"
                   onClick={closeVideo}
-                  className="p-1.5 rounded-full text-[#E8DFD1] hover:text-[#ECCF8A] hover:bg-[#162B1D] transition-colors cursor-pointer"
+                  className="w-9 h-9 flex items-center justify-center rounded-full text-[#E8DFD1] hover:text-[#ECCF8A] hover:bg-[#162B1D] transition-colors cursor-pointer"
                   aria-label="Close video"
                 >
                   <X className="w-5 h-5" />
@@ -183,7 +183,7 @@ export const Videos: React.FC = () => {
               </div>
 
               {/* YouTube / Video Container */}
-              <div className="relative aspect-video w-full bg-black">
+              <div className="relative aspect-video w-full bg-black shrink-0">
                 <iframe
                   src={selectedVideo.youtubeUrl}
                   title={selectedVideo.title}
@@ -194,8 +194,8 @@ export const Videos: React.FC = () => {
               </div>
 
               {/* Modal Footer Description */}
-              <div className="p-6 bg-[#0E1E12] text-xs text-[#D4C8B5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <p className="max-w-xl font-light">
+              <div className="p-4 sm:p-6 bg-[#0E1E12] text-xs text-[#D4C8B5] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 overflow-y-auto">
+                <p className="max-w-xl font-light text-[11px] sm:text-xs">
                   {selectedVideo.description}
                 </p>
 
@@ -203,7 +203,7 @@ export const Videos: React.FC = () => {
                   href={`https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(`Hi RK Mehndi Artist, I watched your video "${selectedVideo.title}" and would like to inquire about booking.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 bg-[#C5A059] text-[#0E1E12] font-semibold text-xs uppercase tracking-widest hover:bg-[#D4AF37] transition-colors shrink-0"
+                  className="w-full sm:w-auto text-center px-5 py-3 sm:py-2.5 bg-[#C5A059] text-[#0E1E12] font-semibold text-xs uppercase tracking-widest hover:bg-[#D4AF37] transition-colors shrink-0 min-h-[44px] flex items-center justify-center"
                 >
                   Book This Design
                 </a>

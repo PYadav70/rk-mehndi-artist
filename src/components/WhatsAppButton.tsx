@@ -12,8 +12,11 @@ export const WhatsAppButton: React.FC = () => {
 
   return (
     <>
-      {/* Floating Official Green WhatsApp Button */}
-      <aside aria-label="WhatsApp Quick Contact" className="fixed bottom-6 right-5 sm:bottom-8 sm:right-8 z-50 flex items-center gap-3">
+      {/* Floating Official Green WhatsApp Button - Elevated above bottom bar on mobile */}
+      <aside
+        aria-label="WhatsApp Quick Contact"
+        className="fixed bottom-20 right-4 sm:bottom-8 sm:right-8 z-50 flex items-center gap-3"
+      >
         {/* Animated Tooltip on Desktop */}
         <AnimatePresence>
           {isHovered && (

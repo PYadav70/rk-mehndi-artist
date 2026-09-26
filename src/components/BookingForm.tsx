@@ -72,7 +72,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
         </div>
 
         {/* Premium Dark Green + Cream Form Container */}
-        <div className="bg-[#162B1D] border border-[#C5A059]/35 p-6 sm:p-10 md:p-12 shadow-2xl backdrop-blur-sm">
+        <div className="bg-[#162B1D] border border-[#C5A059]/35 p-5 sm:p-10 md:p-12 shadow-2xl backdrop-blur-sm">
           
           {formSubmitted && (
             <div className="mb-8 p-4 bg-[#25D366]/20 border border-[#25D366] flex items-start gap-3">
@@ -96,12 +96,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
               
               {/* Full Name */}
               <div>
-                <label htmlFor="fullName" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+                <label htmlFor="fullName" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                   Full Name *
                 </label>
                 <input
@@ -112,13 +112,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder="e.g. Priya Sharma"
-                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors"
+                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors min-h-[46px]"
                 />
               </div>
 
               {/* WhatsApp Number */}
               <div>
-                <label htmlFor="whatsappNumber" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+                <label htmlFor="whatsappNumber" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                   WhatsApp Number *
                 </label>
                 <input
@@ -129,13 +129,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                   value={formData.whatsappNumber}
                   onChange={handleChange}
                   placeholder="e.g. +91 98765 43210"
-                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors"
+                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors min-h-[46px]"
                 />
               </div>
 
               {/* Event Date */}
               <div>
-                <label htmlFor="eventDate" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+                <label htmlFor="eventDate" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                   Event Date *
                 </label>
                 <input
@@ -145,13 +145,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                   required
                   value={formData.eventDate}
                   onChange={handleChange}
-                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors [color-scheme:dark]"
+                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors [color-scheme:dark] min-h-[46px]"
                 />
               </div>
 
               {/* Event Type */}
               <div>
-                <label htmlFor="eventType" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+                <label htmlFor="eventType" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                   Event Type *
                 </label>
                 <select
@@ -159,7 +159,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                   name="eventType"
                   value={formData.eventType}
                   onChange={handleChange}
-                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors"
+                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors min-h-[46px]"
                 >
                   <option value="Bridal Wedding">Bridal Wedding</option>
                   <option value="Engagement Ceremony">Engagement Ceremony</option>
@@ -171,7 +171,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
 
               {/* Event Location */}
               <div>
-                <label htmlFor="eventLocation" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+                <label htmlFor="eventLocation" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                   Event Location *
                 </label>
                 <input
@@ -182,13 +182,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                   value={formData.eventLocation}
                   onChange={handleChange}
                   placeholder="e.g. Sector 50 Noida / Hotel / Home"
-                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors"
+                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors min-h-[46px]"
                 />
               </div>
 
               {/* Number of People */}
               <div>
-                <label htmlFor="numberOfPeople" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+                <label htmlFor="numberOfPeople" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                   Number of People *
                 </label>
                 <select
@@ -196,7 +196,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                   name="numberOfPeople"
                   value={formData.numberOfPeople}
                   onChange={handleChange}
-                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors"
+                  className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors min-h-[46px]"
                 >
                   <option value="Bride Only">Bride Only</option>
                   <option value="Bride + 2 to 5 Guests">Bride + 2 to 5 Guests</option>
@@ -210,7 +210,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
 
             {/* Service Required */}
             <div>
-              <label htmlFor="serviceRequired" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+              <label htmlFor="serviceRequired" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                 Service Required *
               </label>
               <select
@@ -218,7 +218,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                 name="serviceRequired"
                 value={formData.serviceRequired}
                 onChange={handleChange}
-                className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors"
+                className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] focus:outline-none focus:border-[#ECCF8A] transition-colors min-h-[46px]"
               >
                 <option value="Bridal Mehndi">Bridal Mehndi (Intricate hands, forearms & feet)</option>
                 <option value="Engagement Mehndi">Engagement Mehndi</option>
@@ -233,7 +233,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
 
             {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-2">
+              <label htmlFor="message" className="block text-xs uppercase tracking-[0.16em] text-[#ECCF8A] font-medium mb-1.5 sm:mb-2">
                 Message / Custom Design Preferences
               </label>
               <textarea
@@ -243,7 +243,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ preselectedService = '
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Share any special requests, custom couple motifs, or questions..."
-                className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors resize-none"
+                className="w-full bg-[#0E1E12] border border-[#C5A059]/35 px-4 py-3 text-base sm:text-sm text-[#FCFBF7] placeholder-[#738276] focus:outline-none focus:border-[#ECCF8A] transition-colors resize-none"
               />
             </div>
 

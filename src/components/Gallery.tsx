@@ -18,6 +18,7 @@ import { fadeUpVariant, LUXURY_EASE } from '../utils/animations';
 export const Gallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const touchStartX = React.useRef<number | null>(null);
 
   const categories = [
     { key: 'all', label: 'ALL DESIGNS' },
@@ -58,18 +59,35 @@ export const Gallery: React.FC = () => {
     document.body.style.overflow = 'auto';
   };
 
-  const nextLightbox = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const nextLightbox = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (lightboxIndex !== null) {
       setLightboxIndex((lightboxIndex + 1) % filteredItems.length);
     }
   };
 
-  const prevLightbox = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const prevLightbox = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
     if (lightboxIndex !== null) {
       setLightboxIndex((lightboxIndex - 1 + filteredItems.length) % filteredItems.length);
     }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextLightbox();
+      } else {
+        prevLightbox();
+      }
+    }
+    touchStartX.current = null;
   };
 
   const currentItem: GalleryImage | null = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
@@ -248,16 +266,18 @@ export const Gallery: React.FC = () => {
               <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.button>
 
-            {/* Lightbox Content Container with Scale Animation */}
+            {/* Lightbox Content Container with Scale Animation & Touch Swipe */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.35, ease: LUXURY_EASE }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
               className="max-w-4xl w-full max-h-[92vh] flex flex-col items-center justify-center relative cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative max-h-[65vh] w-full max-w-lg aspect-[4/5] overflow-hidden border border-[#C5A059]/50 shadow-2xl bg-[#0B160E] mx-auto">
+              <div className="relative max-h-[48vh] sm:max-h-[62vh] w-full max-w-lg aspect-[4/5] overflow-hidden border border-[#C5A059]/50 shadow-2xl bg-[#0B160E] mx-auto">
                 <Image
                   src={currentItem.image}
                   alt={currentItem.title}
@@ -267,33 +287,33 @@ export const Gallery: React.FC = () => {
               </div>
 
               {/* Caption & Actions */}
-              <div className="mt-4 text-center max-w-2xl px-4 w-full">
-                <div className="flex items-center justify-center gap-2 text-[11px] uppercase tracking-widest text-[#ECCF8A] font-medium mb-1">
+              <div className="mt-3 sm:mt-4 text-center max-w-2xl px-3 sm:px-4 w-full">
+                <div className="flex items-center justify-center gap-2 text-[10px] sm:text-[11px] uppercase tracking-widest text-[#ECCF8A] font-medium mb-1">
                   <span>{currentItem.categoryLabel}</span>
                   <span>•</span>
                   <span>{lightboxIndex! + 1} of {filteredItems.length}</span>
                 </div>
                 
-                <h3 className="font-serif text-lg sm:text-2xl font-semibold text-[#FCFBF7]">
+                <h3 className="font-serif text-base sm:text-2xl font-semibold text-[#FCFBF7]">
                   {currentItem.title}
                 </h3>
                 
-                <p className="text-xs sm:text-sm text-[#D4C8B5] font-light mt-1 max-w-xl mx-auto">
+                <p className="text-[11px] sm:text-sm text-[#D4C8B5] font-light mt-0.5 sm:mt-1 max-w-xl mx-auto line-clamp-2 sm:line-clamp-none">
                   {currentItem.description}
                 </p>
 
                 {/* Direct Action: Inquire on WhatsApp */}
-                <div className="mt-4 flex items-center justify-center">
+                <div className="mt-3 sm:mt-4 flex items-center justify-center">
                   <motion.a
                     href={createDesignEnquiryUrl(currentItem.title, currentItem.categoryLabel)}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs uppercase tracking-wider font-semibold shadow-lg transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 sm:py-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs uppercase tracking-wider font-semibold shadow-lg transition-all min-h-[44px]"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>Enquire This Design on WhatsApp</span>
+                    <span>Inquire on WhatsApp</span>
                   </motion.a>
                 </div>
               </div>
